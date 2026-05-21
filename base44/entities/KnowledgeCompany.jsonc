@@ -1,0 +1,103 @@
+{
+  "name": "KnowledgeCompany",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "normalized_name": {
+      "type": "string",
+      "title": "Normalized Name"
+    },
+    "domain": {
+      "type": "string",
+      "title": "Domain"
+    },
+    "website": {
+      "type": "string",
+      "title": "Website"
+    },
+    "hq_city": {
+      "type": "string",
+      "title": "HQ City"
+    },
+    "hq_province": {
+      "type": "string",
+      "title": "HQ Province"
+    },
+    "hq_country": {
+      "type": "string",
+      "title": "HQ Country"
+    },
+    "hq_region": {
+      "type": "string",
+      "title": "HQ Region"
+    },
+    "geo_scope": {
+      "type": "string",
+      "title": "Geo Scope"
+    },
+    "primary_theme": {
+      "type": "string",
+      "title": "Primary Theme"
+    },
+    "industry_label": {
+      "type": "string",
+      "title": "Industry Label"
+    },
+    "industry_sectors": {
+      "type": "string",
+      "title": "Industry Sectors"
+    },
+    "tags": {
+      "type": "string",
+      "title": "Tags"
+    },
+    "keywords": {
+      "type": "string",
+      "title": "Keywords"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Notes"
+    },
+    "source_url": {
+      "type": "string",
+      "title": "Source URL"
+    },
+    "confidence_score": {
+      "type": "number",
+      "title": "Confidence Score"
+    },
+    "theme_confidence": {
+      "type": "number",
+      "title": "Theme Confidence"
+    },
+    "kb_tier": {
+      "type": "string",
+      "title": "KB Tier"
+    },
+    "quality_flags": {
+      "type": "string",
+      "title": "Quality Flags"
+    },
+    "duplicate_group_count": {
+      "type": "number",
+      "title": "Duplicate Group Count"
+    },
+    "is_active": {
+      "type": "boolean",
+      "title": "Is Active",
+      "default": true
+    },
+    "last_verified_at": {
+      "type": "string",
+      "title": "Last Verified At"
+    }
+  },
+  "required": [
+    "name",
+    "domain"
+  ]
+}
