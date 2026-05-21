@@ -1,0 +1,55 @@
+{
+  "name": "Organization",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "slug": {
+      "type": "string",
+      "title": "Slug"
+    },
+    "website": {
+      "type": "string",
+      "title": "Website"
+    },
+    "industry": {
+      "type": "string",
+      "title": "Industry"
+    },
+    "country": {
+      "type": "string",
+      "title": "Country"
+    },
+    "city": {
+      "type": "string",
+      "title": "City"
+    },
+    "subscription_plan": {
+      "type": "string",
+      "title": "Subscription Plan",
+      "enum": [
+        "free",
+        "starter",
+        "pro",
+        "enterprise"
+      ],
+      "default": "free"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "active",
+        "suspended",
+        "trial"
+      ],
+      "default": "trial"
+    }
+  },
+  "required": [
+    "name",
+    "slug"
+  ]
+}

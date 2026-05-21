@@ -1,0 +1,59 @@
+{
+  "name": "ICP",
+  "type": "object",
+  "properties": {
+    "organization_id": {
+      "type": "string",
+      "title": "Organization ID"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "target_industries": {
+      "type": "array",
+      "title": "Target Industries",
+      "items": {
+        "type": "string"
+      }
+    },
+    "target_locations": {
+      "type": "array",
+      "title": "Target Locations",
+      "items": {
+        "type": "string"
+      }
+    },
+    "target_company_size": {
+      "type": "string",
+      "title": "Target Company Size",
+      "enum": [
+        "smb",
+        "mid_market",
+        "enterprise",
+        "all"
+      ],
+      "default": "all"
+    },
+    "buying_signals": {
+      "type": "array",
+      "title": "Buying Signals",
+      "items": {
+        "type": "string"
+      }
+    },
+    "is_active": {
+      "type": "boolean",
+      "title": "Is Active",
+      "default": true
+    }
+  },
+  "required": [
+    "organization_id",
+    "name"
+  ]
+}

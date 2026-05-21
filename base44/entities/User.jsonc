@@ -1,0 +1,45 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "organization_id": {
+      "type": "string",
+      "title": "Organization ID"
+    },
+    "role": {
+      "type": "string",
+      "title": "Role",
+      "enum": [
+        "super_admin",
+        "org_admin",
+        "manager",
+        "sales_user"
+      ],
+      "default": "sales_user"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "active",
+        "suspended",
+        "pending_invitation"
+      ],
+      "default": "pending_invitation"
+    },
+    "last_login_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Last Login At"
+    },
+    "invitation_token": {
+      "type": "string",
+      "title": "Invitation Token"
+    },
+    "invitation_expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Invitation Expires At"
+    }
+  }
+}

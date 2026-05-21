@@ -1,0 +1,71 @@
+{
+  "name": "CompanyProfile",
+  "type": "object",
+  "properties": {
+    "organization_id": {
+      "type": "string",
+      "title": "Organization ID"
+    },
+    "company_name": {
+      "type": "string",
+      "title": "Company Name"
+    },
+    "website": {
+      "type": "string",
+      "title": "Website"
+    },
+    "industry": {
+      "type": "string",
+      "title": "Industry"
+    },
+    "offer_summary": {
+      "type": "string",
+      "title": "Offer Summary"
+    },
+    "value_proposition": {
+      "type": "string",
+      "title": "Value Proposition"
+    },
+    "target_market": {
+      "type": "string",
+      "title": "Target Market"
+    },
+    "geographic_focus": {
+      "type": "string",
+      "title": "Geographic Focus"
+    },
+    "tone_of_voice": {
+      "type": "string",
+      "title": "Tone of Voice",
+      "enum": [
+        "professional",
+        "casual",
+        "technical",
+        "friendly"
+      ],
+      "default": "professional"
+    },
+    "excluded_keywords": {
+      "type": "array",
+      "title": "Excluded Keywords",
+      "items": {
+        "type": "string"
+      }
+    },
+    "competitors": {
+      "type": "array",
+      "title": "Competitors",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string",
+      "title": "Notes"
+    }
+  },
+  "required": [
+    "organization_id",
+    "company_name"
+  ]
+}
