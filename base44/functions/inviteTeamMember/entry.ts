@@ -8,10 +8,6 @@ Deno.serve(async (req) => {
     return Response.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  if (user.role !== 'org_admin') {
-    return Response.json({ error: 'Forbidden: org_admin required' }, { status: 403 });
-  }
-
   const { email, role } = await req.json();
 
   if (!email || !role) {
@@ -22,9 +18,13 @@ Deno.serve(async (req) => {
     return Response.json({ error: 'Invalid role. Must be manager or sales_user.' }, { status: 400 });
   }
 
-  // Get the caller's organization_id from their user record
+  // Verify caller role via User entity (not auth token)
   const callerRecords = await base44.asServiceRole.entities.User.filter({ email: user.email });
   const callerRecord = callerRecords.find(u => u.organization_id);
+
+  if (callerRecord?.role !== 'org_admin') {
+    return Response.json({ error: 'Forbidden: org_admin required' }, { status: 403 });
+  }
   if (!callerRecord?.organization_id) {
     return Response.json({ error: 'Caller has no associated organization.' }, { status: 400 });
   }
@@ -60,7 +60,7 @@ Deno.serve(async (req) => {
   await base44.asServiceRole.integrations.Core.SendEmail({
     to: email,
     subject: `Invitation à rejoindre ${orgName} sur Parlios Prospect Pilot`,
-    body: `Bonjour,\n\nVous avez été invité(e) à rejoindre l'organisation "${orgName}" sur Parlios Prospect Pilot AI en tant que ${role === 'manager' ? 'Manager' : 'Sales User'}.\n\nToken d'invitation (valable 7 jours) : ${token}\n\nPartagez ce lien avec le membre invité pour accéder à la plateforme.\n\nÀ bientôt sur Parlios !`,
+    body: `Bonjour,\n\nVous avez été invité(e) à rejoindre l'organisation "${orgName}" sur Parlios Prospect Pilot AI en tant que ${role === 'manager' ? 'Manager' : 'Sales User'}.\n\nCliquez ici pour accepter votre invitation (valable 7 jours) :\n${Deno.env.get('APP_URL') || 'https://app.parlios.com'}/accept-invite?token=${token}\n\nÀ bientôt sur Parlios !`,
   });
 
   return Response.json({

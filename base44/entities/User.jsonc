@@ -41,5 +41,16 @@
       "format": "date-time",
       "title": "Invitation Expires At"
     }
+  },
+  "required": [
+    "organization_id"
+  ],
+  "rls": {
+    "read": {
+      "rule": "user.role === 'super_admin' || record.organization_id === user.organization_id"
+    },
+    "write": {
+      "rule": "user.role === 'super_admin' || record.organization_id === user.organization_id"
+    }
   }
 }

@@ -72,7 +72,7 @@ Deno.serve(async (req) => {
   await base44.asServiceRole.integrations.Core.SendEmail({
     to: admin_email,
     subject: `Invitation à rejoindre ${org_data.name} sur Parlios Prospect Pilot`,
-    body: `Bonjour,\n\nVous avez été invité(e) à rejoindre l'organisation "${org_data.name}" sur Parlios Prospect Pilot AI en tant qu'administrateur.\n\nToken d'invitation (valable 7 jours) : ${token}\n\nPartagez ce lien avec l'administrateur pour accéder à la plateforme.\n\nÀ bientôt sur Parlios !`,
+    body: `Bonjour,\n\nVous avez été invité(e) à rejoindre l'organisation "${org_data.name}" sur Parlios Prospect Pilot AI en tant qu'administrateur.\n\nCliquez ici pour accepter votre invitation (valable 7 jours) :\n${Deno.env.get('APP_URL') || 'https://app.parlios.com'}/accept-invite?token=${token}\n\nÀ bientôt sur Parlios !`,
   });
 
   return Response.json({
